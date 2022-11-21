@@ -23,6 +23,29 @@ import "../style/index.css";
     }
  */
 function render(variables = {}) {
+  const includeCover = document.querySelector(".includeCover");
+  const name = document.querySelector(".name");
+  const lastName = document.querySelector(".lastName");
+  const smPosition = document.querySelector(".smPosition");
+  const twitter = document.querySelector(".twitter");
+  const github = document.querySelector(".github");
+  const linkedin = document.querySelector(".linkedin");
+  const instagram = document.querySelector(".instagram");
+  const role = document.querySelector(".role");
+  const city = document.querySelector(".city");
+  const country = document.querySelector(".country");
+
+  const handleSMPosition = event => {
+    if (smPosition.value === "Left") {
+      smPosition.classList.add("position-left");
+      smPosition.classList.remove("position-right");
+    } else {
+      smPosition.classList.add("position-right");
+      smPosition.classList.remove("position-left");
+    }
+  };
+  smPosition.addEventListener("change", handleSMPosition);
+
   console.log("These are the current variables: ", variables); //print on the console
   // here we ask the logical questions to make decisions on how to build the html
   // if includeCover==false then we reset the cover code without the <img> tag to make the cover transparent.
@@ -33,14 +56,20 @@ function render(variables = {}) {
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/4geeksacademy"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/4geeksacademy"><i class="fab fa-instagram"></i></a></li>
+          <h1>${name.value || "Your name"} ${lastName.value ||
+    "Your last name"}</h1>
+          <h2>${role.value || "Your role"}</h2>
+          <h3>${city.value || "Your city"}, ${country.value ||
+    "Your country"}</h3>
+          <ul class=${smPosition.value}>
+            <li><a href=${twitter.value}><i class="fab fa-twitter"></i></a></li>
+            <li><a href=${github.value}><i class="fab fa-github"></i></a></li>
+            <li><a href=${
+              linkedin.value
+            }><i class="fab fa-linkedin"></i></a></li>
+            <li><a href=${
+              instagram.value
+            }><i class="fab fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
