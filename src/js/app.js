@@ -62,14 +62,10 @@ function render(variables = {}) {
           <h3>${city.value || "Your city"}, ${country.value ||
     "Your country"}</h3>
           <ul class=${smPosition.value}>
-            <li><a href=${twitter.value}><i class="fab fa-twitter"></i></a></li>
-            <li><a href=${github.value}><i class="fab fa-github"></i></a></li>
-            <li><a href=${
-              linkedin.value
-            }><i class="fab fa-linkedin"></i></a></li>
-            <li><a href=${
-              instagram.value
-            }><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://twitter.com/"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://github.com/vickygg22"><i class="fab fa-github"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/victoria-gonz%C3%A1lez-garc%C3%ADa/"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
